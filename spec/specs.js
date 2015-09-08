@@ -38,16 +38,31 @@ describe('columnCount', function() {
     });
 });
 
-describe('encode', function() {
+describe('splitRows', function() {
     it("creates an array of strings from inputString, each with length equal to number of columns", function() {
         var inputString = "Portlands NachoWk!";
         var flattenedString = format(inputString);
         var rowLength = columnCount(flattenedString);
-        var firstItemLength = encode(flattenedString)[0].length;
+        var firstItemLength = splitRows(flattenedString)[0].length;
 
         expect(firstItemLength).to.equal(4);
 
     });
+});
 
+describe('encode', function() {
+    // takes array of un-encoded rows as its parameter, returns array of encoded rows
+    it("encodes the message by reading the message down the rows of the square", function() {
+        var inputString = "Portlands NachoWk!";
+        var flattenedString = format(inputString);
 
+        var rowLength = columnCount(flattenedString);
+        var rows = splitRows(flattenedString);
+
+        var encodedRows = encode(flattenedString);
+        // debugger;
+        var firstEncodedRow = encodedRows[0];
+        //
+        expect(firstEncodedRow).to.equal('plsh');
+    });
 });

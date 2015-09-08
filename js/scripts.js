@@ -19,7 +19,7 @@ var columnCount = function(message) {
     };
 };
 
-var encode = function(message) {
+var splitRows = function(message) {
     var output = [];
     var formattedMessage = format(message);
     var numberOfColumns = columnCount(formattedMessage);
@@ -28,4 +28,36 @@ var encode = function(message) {
         output.push(formattedMessage.slice(i, i + numberOfColumns));
     };
     return output;
+};
+
+var encode = function(message) {
+    var encodedRows = [];
+    var formattedMessage = format(message);
+    var unencodedRows = splitRows(formattedMessage);
+    var numberOfColumns = columnCount(formattedMessage);
+
+    unencodedRows.forEach(function(row) {
+
+        // Get this unencoded row into a letter array
+        var letterArray = row.split("");
+
+        var letterCount = 0;
+
+        // Iterate through letters in this row and add one to the end of each next encoded row
+        letterArray.forEach(function(letter) {
+
+            // If this encoded row doesn't exist yet, initialize it to an empty string.
+            if (!encodedRows[letterCount]) {
+                encodedRows[letterCount] = "";
+            }
+
+            // Put this letter of this row in the corresponding position of a new row
+            encodedRows[letterCount] += letter;
+
+            // Increment letter count
+            letterCount++;
+        });
+    });
+
+    return encodedRows;
 };
