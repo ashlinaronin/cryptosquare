@@ -7,6 +7,13 @@ var encode = function(message) {
     return output;
 }
 
-var squareSize = function(message) {
-    
+var columnCount = function(message) {
+    var output = "";
+
+    var numberOfCharacters = encode(message).length;
+
+    var numberOfColumns = Math.sqrt(numberOfCharacters);
+    if (numberOfColumns % 1 === 0) {
+        return numberOfColumns;
+    }
 }

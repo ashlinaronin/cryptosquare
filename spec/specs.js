@@ -12,11 +12,11 @@ describe('encode', function() {
     });
 });
 
-describe('squareSize', function() {
-    it("is 8 rows by 9 columns for a 69 character input", function() {
-        var inputString = "don't compare yourself to others, compare yourself to the person you were yesterday";
+describe('columnCount', function() {
+    it("is 8 columns for a 64 character input", function() {
+        var inputString = "don't compare yourself to others, compare yourself person you were yesterday";
         var flattenedString = encode(inputString);
 
-        expect(squareSize(flattenedString)).to.equal([8,9]);
+        expect(columnCount(flattenedString)).to.equal(8);
     });
 })
