@@ -19,4 +19,11 @@ describe('columnCount', function() {
 
         expect(columnCount(flattenedString)).to.equal(8);
     });
-})
+
+    it("is 4 columns for a 16 character input", function() {
+        var inputString = "Portlands NachoWk!";
+        var flattenedString = encode(inputString);
+
+        expect(columnCount(flattenedString)).to.equal(4);
+    });
+});

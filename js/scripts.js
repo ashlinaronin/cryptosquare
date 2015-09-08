@@ -15,5 +15,7 @@ var columnCount = function(message) {
     var numberOfColumns = Math.sqrt(numberOfCharacters);
     if (numberOfColumns % 1 === 0) {
         return numberOfColumns;
+    } else {
+        return false;
     }
 }
