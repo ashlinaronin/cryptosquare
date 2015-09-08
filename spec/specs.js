@@ -26,4 +26,11 @@ describe('columnCount', function() {
 
         expect(columnCount(flattenedString)).to.equal(4);
     });
+
+    it("is 9 columns for a 69 character input", function() {
+        var inputString = "don't compare yourself to others, compare yourself to the person you were yesterday";
+        var flattenedString = encode(inputString);
+
+        expect(columnCount(flattenedString)).to.equal(9);
+    });
 });
