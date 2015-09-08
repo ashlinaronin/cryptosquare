@@ -11,9 +11,7 @@ $(document).ready(function() {
 
         $("#result").text(textToPrint);
 
-
-
         $("#result").show();
         event.preventDefault();
-    })
+    });
 });

@@ -1,3 +1,5 @@
+// We could re-factor this, but found it helpful to break things down into pieces.
+
 var format = function(message) {
     var output = "";
 
