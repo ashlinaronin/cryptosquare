@@ -59,5 +59,12 @@ var encode = function(message) {
         });
     });
 
-    return encodedRows;
+    var encodedString = encodedRows.join("");
+    var fiveCharChunks = [];
+
+    for (var i = 0; i < encodedString.length; i += 5) {
+        fiveCharChunks.push(encodedString.slice(i, i + 5));
+    };
+
+    return fiveCharChunks;
 };

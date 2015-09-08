@@ -52,7 +52,7 @@ describe('splitRows', function() {
 
 describe('encode', function() {
     // takes array of un-encoded rows as its parameter, returns array of encoded rows
-    it("encodes the message by reading the message down the rows of the square", function() {
+    it("encodes the message of 16 length into 4x4 square", function() {
         var inputString = "Portlands NachoWk!";
         var flattenedString = format(inputString);
 
@@ -64,5 +64,23 @@ describe('encode', function() {
         var firstEncodedRow = encodedRows[0];
         //
         expect(firstEncodedRow).to.equal('plsh');
+    });
+
+    it("puts encoded strings into strings with length of 5", function() {
+        var inputString = "Portlands NachoWk!";
+        var flattenedString = format(inputString);
+
+        var rowLength = columnCount(flattenedString);
+        var rows = splitRows(flattenedString);
+
+        var encodedRows = encode(flattenedString);
+
+        // var firstEncodedRow = encodedRows[0];
+
+        expect(encodedRows[0]).to.equal('plsho');
+        expect(encodedRows[1]).to.equal('anorn');
+        expect(encodedRows[2]).to.equal('awtdc');
+        expect(encodedRows[3]).to.equal('k');
+
     });
 });
